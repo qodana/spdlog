@@ -1,0 +1,14 @@
+version: "1.0"
+
+# Bootstrap command to generate compilation database
+bootstrap: |
+  set -eux
+  cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+# Use recommended profile with all inspections enabled
+profile:
+  name: qodana.recommended
+
+# Include all inspections
+include:
+  - name: All
